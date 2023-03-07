@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package contacorrenteconstrutor;
 
 import java.sql.Connection;
@@ -40,7 +36,8 @@ public class ContaCorrenteConstrutor {
         Scanner input = new Scanner(System.in);
         System.out.println("Deseja Cadstrar Quantos Clientes?");
         qtd = input.nextInt();
-                
+         
+        // Criação do objeto como array 
         ContaCorrenteConstrutor[] contaC = new ContaCorrenteConstrutor[qtd];
         
         for(int i=0;i<qtd;i++){
@@ -54,7 +51,7 @@ public class ContaCorrenteConstrutor {
         String clienteD = input.next();
         
         double saldoD = 0;
-            
+        // Passagem dos valores para o novo objeto como array    
         contaC[i] = new ContaCorrenteConstrutor(agenciaD,contaD,clienteD,saldoD);
         }
         /* Saida com as classecontaC.agencia(construtor criado)  */
