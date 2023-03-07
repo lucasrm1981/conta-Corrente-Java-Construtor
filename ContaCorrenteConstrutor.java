@@ -1,4 +1,13 @@
-package aluno;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package contacorrenteconstrutor;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import java.util.Scanner;
 
@@ -6,48 +15,56 @@ import java.util.Scanner;
  *
  * @author lucas.monteiro
  */
-public class Aluno {
-
-    //Variáveis do construtor
-    String matricula_;
-    double nota_;
-
-// Construtor Aluno com passagem de valores para as variáveis
-    public Aluno(String matricula, double nota) {
-        matricula_ = matricula;
-        nota_ = nota;
+public class ContaCorrenteConstrutor {
+    // Iniciação dos contrutores
+    int agencia;
+    int conta;
+    String cliente;
+    double saldo;
+    /* Criação da classe de passagem*/
+    
+    public ContaCorrenteConstrutor(int agenciaCli, int contaCli, String clienteCli,double saldoCli){
+        agencia= agenciaCli;
+        conta = contaCli;
+        cliente = clienteCli;
+        saldo = saldoCli;
+        
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        int QuantidadeAlunos;
-        String matricula;
-        double mediaAlunos = 0;
-
-        System.out.print("Digite um a quantidade de alunos: ");
-        QuantidadeAlunos = entrada.nextInt();
-// Instanciação e contrução do objeto alunos com array
-        Aluno[] alunos = new Aluno[QuantidadeAlunos];
-
-        for (int x = 0; x < QuantidadeAlunos; x++) {
-            System.out.print("\nDigite o número da matrícula do aluno: ");
-            matricula = entrada.next();
-            System.out.print("Digite a nota do aluno: ");
-            double nota = entrada.nextDouble();
-// Array dos alunos
-            alunos[x] = new Aluno(matricula, nota);
-// Passagem de valores para as classes
-            alunos[x].matricula_ = matricula;
-            alunos[x].nota_ = nota;
-            // Soma das notas
-            mediaAlunos += nota;
+        /* Instanciação dos objetos da classe ContaCorrenteConstrutor pelo objeto contaC*/
+        int qtd;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Deseja Cadstrar Quantos Clientes?");
+        qtd = input.nextInt();
+                
+        ContaCorrenteConstrutor[] contaC = new ContaCorrenteConstrutor[qtd];
+        
+        for(int i=0;i<qtd;i++){
+            System.out.println("Digite a Agencia");
+        int agenciaD = input.nextInt();
+        
+        System.out.println("Digite a Conta");
+        int contaD = input.nextInt();
+        
+        System.out.println("Digite o Cliente");
+        String clienteD = input.next();
+        
+        double saldoD = 0;
+            
+        contaC[i] = new ContaCorrenteConstrutor(agenciaD,contaD,clienteD,saldoD);
         }
-        //Calculo da média das notas
-        mediaAlunos = mediaAlunos / QuantidadeAlunos;
-        System.out.println("\nA média da turma foi de " + mediaAlunos);
+        /* Saida com as classecontaC.agencia(construtor criado)  */
+        
+        for(int i = 0; i < contaC.length; i++) {             
+         System.out.printf("\n\nAgencia: %s", contaC[i].agencia);  
+         System.out.printf("\n\nConta: %s", contaC[i].conta);  
+         System.out.printf("\n\nCliente: %s", contaC[i].cliente.toUpperCase());  
+         System.out.printf("\n\nCliente: %s", contaC[i].saldo+"\n"); 
+      }  
     }
-
+    
 }
