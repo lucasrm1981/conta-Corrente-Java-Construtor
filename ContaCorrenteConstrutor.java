@@ -1,23 +1,53 @@
-public class ContaCorrenteConstrutor {
-    // Iniciação dos contrutores
-    int agencia;
-    int conta;
-    String cliente;
-    /* Criação da classe de passagem dos construtores */
-    public ContaCorrenteConstrutor(int agenciaCli, int contaCli, String clienteCli){
-        agencia = agenciaCli;
-        conta = contaCli;
-        cliente = clienteCli;
-        
+package aluno;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author lucas.monteiro
+ */
+public class Aluno {
+
+    //Variáveis do construtor
+    String matricula_;
+    double nota_;
+
+// Construtor Aluno com passagem de valores para as variáveis
+    public Aluno(String matricula, double nota) {
+        matricula_ = matricula;
+        nota_ = nota;
     }
 
-   
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-        /* Instanciação dos objetos da classe ContaCorrenteConstrutor pelo objeto contaC */
-        ContaCorrenteConstrutor contaC = new ContaCorrenteConstrutor(171,2217122,"Lucas");
-        
-        /* Saida com as classecontaC.agencia(construtor criado)  */
-        System.out.print("\nAgencia: "+contaC.agencia+"\nConta: "+contaC.conta+"\nCliente: "+contaC.cliente+"\n");
+        Scanner entrada = new Scanner(System.in);
+        int QuantidadeAlunos;
+        String matricula;
+        double mediaAlunos = 0;
+
+        System.out.print("Digite um a quantidade de alunos: ");
+        QuantidadeAlunos = entrada.nextInt();
+// Instanciação e contrução do objeto alunos com array
+        Aluno[] alunos = new Aluno[QuantidadeAlunos];
+
+        for (int x = 0; x < QuantidadeAlunos; x++) {
+            System.out.print("\nDigite o número da matrícula do aluno: ");
+            matricula = entrada.next();
+            System.out.print("Digite a nota do aluno: ");
+            double nota = entrada.nextDouble();
+// Array dos alunos
+            alunos[x] = new Aluno(matricula, nota);
+// Passagem de valores para as classes
+            alunos[x].matricula_ = matricula;
+            alunos[x].nota_ = nota;
+            // Soma das notas
+            mediaAlunos += nota;
+        }
+        //Calculo da média das notas
+        mediaAlunos = mediaAlunos / QuantidadeAlunos;
+        System.out.println("\nA média da turma foi de " + mediaAlunos);
     }
-    
+
 }
