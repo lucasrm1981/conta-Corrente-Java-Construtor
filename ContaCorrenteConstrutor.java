@@ -2,10 +2,6 @@ package contacorrenteconstrutor;
 
 import java.util.Scanner;
 
-/**
- *
- * @author lucas.monteiro
- */
 public class ContaCorrenteConstrutor {
     // Iniciação dos contrutores
     int agencia;
